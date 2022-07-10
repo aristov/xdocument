@@ -1,0 +1,23 @@
+{
+  "name": "notnode",
+  "version": "0.0.1",
+  "description": "Virtual DOM implementation",
+  "main": "index.js",
+  "scripts": {
+    "start": "ava --watch",
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aristov/notnode.git"
+  },
+  "author": "Vyacheslav Aristov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aristov/notnode/issues"
+  },
+  "homepage": "https://github.com/aristov/notnode#readme",
+  "devDependencies": {
+    "ava": "^4.3.0"
+  }
+}
