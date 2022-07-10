@@ -1,30 +1,30 @@
 const test = require('ava')
-const NotNode = require('..')
+const { createElement } = require('..')
 
 test('localName', t => {
-  const node = new NotNode('div')
+  const node = createElement('div')
 
   t.is(node.localName, 'div')
   t.is(node.outerHTML, '<div></div>')
 })
 
 test('short tag', t => {
-  const node = new NotNode('link')
+  const node = createElement('link')
 
   t.is(node.localName, 'link')
   t.is(node.outerHTML, '<link>')
 })
 
 test('setAttribute', t => {
-  const node = new NotNode('div')
+  const node = createElement('div')
   node.setAttribute('id', '123')
 
   t.is(node.outerHTML, '<div id="123"></div>')
 })
 
 test('append', t => {
-  const node = new NotNode('div')
-  const child = new NotNode('span')
+  const node = createElement('div')
+  const child = createElement('span')
   child.append('test')
   node.append(child)
 
@@ -34,7 +34,7 @@ test('append', t => {
 })
 
 test('href', t => {
-  const node = new NotNode('a')
+  const node = createElement('a')
   node.href = 'http://example.com'
   node.append('Example')
 
@@ -43,7 +43,7 @@ test('href', t => {
 })
 
 test('hidden', t => {
-  const node = new NotNode('div')
+  const node = createElement('div')
   node.hidden = true
   node.append('Test')
 
@@ -52,7 +52,7 @@ test('hidden', t => {
 })
 
 test('defaultValue', t => {
-  const node = new NotNode('input')
+  const node = createElement('input')
   node.defaultValue = 'qwerty'
 
   t.is(node.defaultValue, 'qwerty')
