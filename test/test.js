@@ -32,3 +32,29 @@ test('append', t => {
   t.is(node.childNodes[0], child)
   t.is(node.outerHTML, '<div><span>test</span></div>')
 })
+
+test('href', t => {
+  const node = new NotNode('a')
+  node.href = 'http://example.com'
+  node.append('Example')
+
+  t.is(node.href, 'http://example.com')
+  t.is(node.outerHTML, '<a href="http://example.com">Example</a>')
+})
+
+test('hidden', t => {
+  const node = new NotNode('div')
+  node.hidden = true
+  node.append('Test')
+
+  t.is(node.hidden, true)
+  t.is(node.outerHTML, '<div hidden="">Test</div>')
+})
+
+test('defaultValue', t => {
+  const node = new NotNode('input')
+  node.defaultValue = 'qwerty'
+
+  t.is(node.defaultValue, 'qwerty')
+  t.is(node.outerHTML, '<input value="qwerty">')
+})
