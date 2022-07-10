@@ -9,7 +9,7 @@ class NotNode
   childNodes = []
 
   append(...items) {
-
+    this.childNodes.push(...items)
   }
 
   setAttribute(name, value) {
@@ -26,6 +26,10 @@ class NotNode
     result += '>'
     if(shortTags[localName]) {
       return result
+    }
+    let child
+    for(child of this.childNodes) {
+      result += child.outerHTML || child
     }
     return result + '</' + localName + '>'
   }
