@@ -4,7 +4,7 @@ class NotNode
     this.localName = name
   }
 
-  attributes = []
+  attributes = {}
 
   childNodes = []
 
@@ -13,12 +13,38 @@ class NotNode
   }
 
   setAttribute(name, value) {
-
+    this.attributes[name] = value
   }
 
   get outerHTML() {
-    return '<' + this.localName + '></' + this.localName + '>'
+    const { localName, attributes } = this
+    let result = '<' + localName
+    let name
+    for(name in attributes) {
+      result += ` ${ name }="${ attributes[name] }"`
+    }
+    result += '>'
+    if(shortTags[localName]) {
+      return result
+    }
+    return result + '</' + localName + '>'
   }
+}
+
+const shortTags = {
+  area : true,
+  base : true,
+  br : true,
+  col : true,
+  embed : true,
+  hr : true,
+  img : true,
+  input : true,
+  link : true,
+  meta : true,
+  source : true,
+  track : true,
+  wbr : true,
 }
 
 module.exports = NotNode
