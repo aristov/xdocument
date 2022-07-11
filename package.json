@@ -1,5 +1,5 @@
 {
-  "name": "notnode",
+  "name": "xdocument",
   "version": "0.0.1",
   "description": "Virtual DOM implementation",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aristov/notnode.git"
+    "url": "git+https://github.com/aristov/xdocument.git"
   },
   "author": "Vyacheslav Aristov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aristov/notnode/issues"
+    "url": "https://github.com/aristov/xdocument/issues"
   },
-  "homepage": "https://github.com/aristov/notnode#readme",
+  "homepage": "https://github.com/aristov/xdocument#readme",
   "devDependencies": {
     "ava": "^4.3.0"
   }
