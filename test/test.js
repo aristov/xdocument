@@ -1,9 +1,5 @@
 const test = require('ava')
-const {
-  createDocumentFragment,
-  createElement,
-  createTextNode,
-} = require('..')
+const { createDocumentFragment, createElement } = require('../lib/document')
 
 test('localName', t => {
   const node = createElement('div')
@@ -61,15 +57,6 @@ test('defaultValue', t => {
 
   t.is(node.defaultValue, 'qwerty')
   t.is(node.outerHTML, '<input value="qwerty">')
-})
-
-test('createTextNode', t => {
-  const node = createElement('div')
-  const text = createTextNode('Hello world!')
-  node.append(text)
-
-  t.is(text, 'Hello world!')
-  t.is(node.outerHTML, '<div>Hello world!</div>')
 })
 
 test('createDocumentFragment', t => {
