@@ -1,7 +1,7 @@
 {
   "name": "xdocument",
   "version": "0.0.1",
-  "description": "Virtual DOM implementation",
+  "description": "Virtual DOM implementation for NodeJS.",
   "main": "index.js",
   "scripts": {
     "start": "ava --watch",
