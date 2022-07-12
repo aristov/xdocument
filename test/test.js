@@ -12,7 +12,7 @@ test('localName', t => {
   t.is(node.outerHTML, '<div></div>')
 })
 
-test('short tag', t => {
+test('no end tag', t => {
   const node = createElement('link')
 
   t.is(node.localName, 'link')
@@ -62,6 +62,29 @@ test('defaultValue', t => {
   t.is(node.defaultValue, 'qwerty')
   t.is(node.outerHTML, '<input value="qwerty">')
 })
+
+test('escaping strings', t => {
+  const result = createElement('div')
+  result.title = '"&'
+  result.append('<>&')
+
+  t.is(result.outerHTML, '<div title="&quot;&amp;">&lt;&gt;&amp;</div>')
+})
+
+test('innerHTML', t => {
+  const node = createElement('div')
+  node.innerHTML = '<span>content</span>'
+
+  t.is(node.outerHTML, '<div><span>content</span></div>')
+})
+
+test('innerText', t => {
+  const node = createElement('div')
+  node.innerText = 'foo\nbar'
+
+  t.is(node.outerHTML, '<div>foo<br>bar</div>')
+})
+
 
 test('createDocumentFragment', t => {
   const node = createElement('div')
